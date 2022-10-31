@@ -19,7 +19,7 @@ interface IERC20 {
 contract Gacha is IERC20 {
   string public constant name = "GACHA coin";
   string public constant symbol = "GAC";
-  uint256 public totalSupply_ = 1000*10**18;
+  uint256 public _total = 1000*10**18;
   mapping (address => uint256) public balances;
   mapping (address => bool) public account;
   mapping(address => mapping (address => uint256)) allowed;
@@ -27,7 +27,7 @@ contract Gacha is IERC20 {
   event Bought(uint256 amount);
 
   function totalSupply() public override view returns (uint256) {
-    return totalSupply_;
+    return _total;
   }
 
   function balanceOf(address tokenOwner) public override view returns (uint256) {
