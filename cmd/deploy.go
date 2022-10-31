@@ -53,16 +53,16 @@ func DeployGachaContract() {
 	}
 
 	auth.Nonce = big.NewInt(int64(nonce))
-	auth.Value = big.NewInt(0)     // in wei
-	auth.GasLimit = uint64(300000) // in units
+	auth.Value = big.NewInt(0)
+	auth.GasLimit = uint64(300000)
 	auth.GasPrice = gasPrice
 
 	address, tx, instance, err := store.DeployContract(auth, client)
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(address.Hex())   // ==> 0x06f447ce56C6cE7C40F20EFf118dB6Bb4fa60148
-	fmt.Println(tx.Hash().Hex()) // ==> 0x40ccf618ebacaf3f0b7587f62e1f434bc05303f9e7100ed85c58b914256eb12d
+	fmt.Println(address.Hex())
+	fmt.Println(tx.Hash().Hex())
 
 	_ = instance
 }
